@@ -79,7 +79,13 @@
   */
   const inputEl = document.querySelector('input');
   const inputDivEl = document.querySelector('#inputDiv');
-  inputDivEl.style.fontSize = inputEl.value + 'px';
+
+  // подгоняем шрифт под ползунок
+  // inputDivEl.style.fontSize = inputEl.value + 'px';
+
+  // подгоняем ползунок под шрифт
+  inputEl.value = window.getComputedStyle(inputDivEl).fontSize.slice(0, -2);
+  
   inputEl.addEventListener('input', event => {
     inputDivEl.style.fontSize = event.target.value + 'px';
   });
